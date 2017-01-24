@@ -1,12 +1,12 @@
---temp-output:C:\Code\MultiFactorAuthMechanism\OneTimePassService\OneTimePassword\obj\Debug\netcoreapp1.0\
---out:C:\Code\MultiFactorAuthMechanism\OneTimePassService\OneTimePassword\bin\Debug\netcoreapp1.0\OneTimePassword.dll
---define:DEBUG
+--temp-output:C:\Code\MultiFactorAuthMechanism\OneTimePassService\OneTimePassword\obj\Release\netcoreapp1.0\
+--out:C:\Code\MultiFactorAuthMechanism\OneTimePassService\OneTimePassword\bin\Release\netcoreapp1.0\OneTimePassword.dll
+--define:RELEASE
 --define:TRACE
 --define:NETCOREAPP1_0
 --suppress-warning:CS1701
 --suppress-warning:CS1702
 --suppress-warning:CS1705
---optimize:False
+--optimize:True
 --debug-type:portable
 --emit-entry-point:False
 --output-name:OneTimePassword
