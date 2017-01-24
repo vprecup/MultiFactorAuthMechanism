@@ -19,9 +19,13 @@ public class ConfirmAccess extends StandardAction
 	}
 	public String doPost()
 	{
-		//System.out.println(token);
-		session.setAttribute("confirmedLogin","1");
-		return "success";
+		if(restConfirmation(token))
+		{
+			session.setAttribute("confirmedLogin","1");
+			return "success";
+		}
+		return "confirmaccess";
+		
 	}
 	public String getToken()
 	{
