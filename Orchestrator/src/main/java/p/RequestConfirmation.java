@@ -10,12 +10,12 @@ public class RequestConfirmation {
 
     private boolean confirmation;
 
-    public RequestConfirmation(String str) {
-			this.confirmation=true;
-/*
+    public RequestConfirmation(String email, String token) {
+
         try{
-		JSONObject json = new JSONObject(IOUtils.toString(new URL("http://ip.jsontest.com/"+str), Charset.forName("UTF-8")));
-		if(json.get("confirm").toString() == "true")
+		URL url = new URL("http://onetimepasswordsvc.azurewebsites.net/tapi/ChallengeToken/"+email+"/"+token);
+		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+		if(connection.getResponseCode() == 200)
 			this.confirmation = true;
 		else
 			this.confirmation = false;
@@ -23,7 +23,6 @@ public class RequestConfirmation {
 		catch(IOException e){
 			System.err.println("Couldn't read");
 		}		        
-*/
 		}
 	
     public Boolean getConfirmation() {

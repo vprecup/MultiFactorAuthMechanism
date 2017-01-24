@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import java.net.*;
 import java.nio.charset.Charset;
 import java.io.IOException;
-
+import java.io.*;
 public class RequestCode {
 
     private String code;
@@ -13,9 +13,10 @@ public class RequestCode {
     public RequestCode(String email) {
         this.email=email;
 		try{
-		JSONObject json = new JSONObject(IOUtils.toString(new URL("http://ip.jsontest.com/"), Charset.forName("UTF-8")));
-//		this.code = json.get("ip").toString();
-		this.code = "12fdsaf34";
+		//URL url = new URL("http://onetimepasswordsvc.azurewebsites.net/tapi/GetToken/"+email);
+//		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+		JSONObject json = new JSONObject(IOUtils.toString(new URL("http://onetimepasswordsvc.azurewebsites.net/tapi/GetToken/"+email), Charset.forName("UTF-8")));
+		this.code = json.get("token").toString();
 		CallEmailService caller = new CallEmailService(email, code);
 		}
 		catch(IOException e){
