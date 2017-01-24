@@ -54,8 +54,8 @@ public class StandardAction extends ActionSupport
 				System.out.println(user.getEmail());
 				URL url = new URL("http://localhost:7788/requestcode.com/"+user.getEmail());	
 				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-				/*System.out.println(conn.getResponseCode());
-				System.out.println(conn);*/
+				System.out.println(conn.getResponseCode());
+				//System.out.println(conn);
 
 				conn.disconnect();
 			}
