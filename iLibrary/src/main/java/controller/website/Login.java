@@ -28,7 +28,7 @@ public class Login extends StandardAction
 		{
 			if(checkPassword(username,password))
 			{
-				String token = callRestService();
+				restTokenGenerator();
 				session.setAttribute("confirmedLogin","0");
 				return "confirmaccess";
 			}
