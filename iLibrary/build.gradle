@@ -7,45 +7,12 @@ repositories
 
 dependencies
 { 
-	//compile 'org.apache.struts:struts2-core:+','jstl:jstl:+','taglibs:standard:+',
-	//		'org.freemarker:freemarker:+','mysql:mysql-connector-java:+',
-	//		'javax.persistence:persistence-api:+','org.hibernate:hibernate-core:5.2.4.Final',
-	//		'org.apache.struts:struts2-json-plugin:+','javax.mail:mail:+'
-    //providedCompile 'javax.servlet:javax.servlet-api:+' 
+	compile 'org.apache.struts:struts2-core:+','jstl:jstl:+','taglibs:standard:+',
+			'org.freemarker:freemarker:+','mysql:mysql-connector-java:+',
+			'javax.persistence:persistence-api:+','org.hibernate:hibernate-core:5.2.4.Final',
+			'org.apache.struts:struts2-json-plugin:+','javax.mail:mail:+'
+	compile group: 'org.json', name: 'json', version: '+'
+    providedCompile 'javax.servlet:javax.servlet-api:+' 
 
 
-    //OFFLINE MODE
-	compile files('/home/alexander/Java/iLibrary/offline/hibernate-core-5.2.4.Final.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/struts2-json-plugin-2.5.5.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/struts2-core-2.5.5.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/standard-1.1.2.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/persistence-api-1.0.2.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/ognl-3.1.10.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/mysql-connector-java-6.0.5.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/mail-1.5.0-b01.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/log4j-api-2.7.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/jstl-1.1.2.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/jsr250-api-1.0.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/jboss-logging-3.3.0.Final.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/javax.servlet-api-4.0.0-b01.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/javax.inject-1.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/javassist-3.20.0-GA.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/jandex-2.0.0.Final.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/hibernate-jpa-2.1-api-1.0.0.Final.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/hibernate-commons-annotations-5.0.1.Final.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/geronimo-jta_1.1_spec-1.1.1.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/freemarker-2.3.25-incubating.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/el-api-2.2.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/dom4j-1.6.1.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/commons-lang3-3.4.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/commons-io-2.4.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/commons-fileupload-1.3.2.jar')		
-	compile files('/home/alexander/Java/iLibrary/offline/classmate-1.3.0.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/cdi-api-1.1.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/asm-tree-5.1.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/asm-commons-5.1.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/asm-5.1.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/antlr-2.7.7.jar')	
-	compile files('/home/alexander/Java/iLibrary/offline/activation-1.1.jar')	
 }  
