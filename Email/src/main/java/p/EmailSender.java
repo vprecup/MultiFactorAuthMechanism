@@ -14,8 +14,8 @@ import p.EmailTemplate;
 
 public class EmailSender {
 
-    final String username = "bodeanely94@gmail.com";
-    final String password = "Parolamea1994*.";
+    final String username = "tokengeneratorj@gmail.com";
+    final String password = "Parola2017*";
     private String email;
     private String token;
 
