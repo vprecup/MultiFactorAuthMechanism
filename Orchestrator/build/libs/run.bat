@@ -1,0 +1,1 @@
+java -jar orchestrator-beta.jar --server.port=7788

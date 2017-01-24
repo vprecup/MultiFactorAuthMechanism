@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="json" extends="json-default" namespace="/">
+        <action name="validateRegister" class="controller.website.Register" method="ajaxValidation">
+            <result type="json">
+                <param name="root">jsonResponse</param>
+            </result>
+            <result name="input" type="json">
+                <param name="root">jsonResponse</param>
+            </result>
+        </action>
+    </package>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="" class="controller.website.Homepage">
+            <result name="home" type="freemarker">/views/index.ftl</result>
+            <result name="confirmaccess" type="freemarker">/views/confirmaccess.ftl</result>
+        </action>
+        <action name="login" class="controller.website.Login">
+            <result name="login" type="freemarker">/views/login.ftl</result>
+            <result name="loginsuccess" type="freemarker">/views/index.ftl</result>
+            <result name="confirmaccess" type="freemarker">/views/confirmaccess.ftl</result>
+            <result name="loginfailed" type="freemarker">/views/login.ftl</result>
+        </action>
+        <action name="signup" class="controller.website.Register">
+            <result name="input" type="freemarker">/views/signup.ftl</result>
+            <result name="signup" type="redirect">/login</result>
+            <result name="success" type="freemarker">/views/signup.ftl</result>
+            <result name="confirmaccess" type="freemarker">/views/confirmaccess.ftl</result>
+            <result name="error" type="freemarker">/views/error.ftl</result>
+        </action>
+        <action name="logout" class="controller.website.Logout">
+            <result name="home" type="freemarker">/views/index.ftl</result>
+        </action>
+        <action name="access" class="controller.website.ConfirmAccess">
+            <result name="confirmaccess" type="freemarker">/views/confirmaccess.ftl</result>
+            <result name="success" type="redirect">/</result>
+        </action>
+
+    </package>
+
+</struts>
