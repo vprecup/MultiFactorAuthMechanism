@@ -11,6 +11,8 @@ public class RequestConfirmation {
     private boolean confirmation;
 
     public RequestConfirmation(String str) {
+			this.confirmation=true;
+/*
         try{
 		JSONObject json = new JSONObject(IOUtils.toString(new URL("http://ip.jsontest.com/"+str), Charset.forName("UTF-8")));
 		if(json.get("confirm").toString() == "true")
@@ -21,7 +23,8 @@ public class RequestConfirmation {
 		catch(IOException e){
 			System.err.println("Couldn't read");
 		}		        
-    }
+*/
+		}
 	
     public Boolean getConfirmation() {
         return confirmation;
