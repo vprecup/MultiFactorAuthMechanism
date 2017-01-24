@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "OneTimePassword": {
+      "target": "project"
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        },
+        "System.Security.SecureString": "4.3.0-preview1-24530-04",
+        "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+        "Microsoft.AspNetCore.Mvc": "1.0.0",
+        "Microsoft.AspNetCore.Mvc.Core": "1.0.0",
+        "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final"
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

@@ -5,6 +5,10 @@ import com.opensymphony.xwork2.*;
 import org.apache.struts2.ServletActionContext;
 import model.DefaultManager;
 import model.User;
+import java.net.*;
+import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject; 
 
 public class StandardAction extends ActionSupport
 {
@@ -38,20 +42,52 @@ public class StandardAction extends ActionSupport
 		}
 		
 	}
-	public String callRestService()
+	public void restTokenGenerator()
 	{
 		if(session.getAttribute("userId") != null)
 		{
 			DefaultManager userHome = new DefaultManager("User");
 			String userId = session.getAttribute("userId").toString();
 			User user = (User)userHome.findById(userId);
-			System.out.println(user.getUsername());
-			System.out.println(user.getPassword());
-			return "token";
+			try
+			{
+				URL url = new URL("http://localhost:7788/requestcode.com/"+user.getEmail());	
+				HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+			}
+			catch(IOException io)
+			{
+				System.out.println("IO Exception");
+			}
+		}
+	}
+	public boolean restConfirmation(String token)
+	{
+		if(session.getAttribute("userId") != null)
+		{
+			DefaultManager userHome = new DefaultManager("User");
+			String userId = session.getAttribute("userId").toString();
+			User user = (User)userHome.findById(userId);
+			try
+			{
+
+				URL url = new URL("http://localhost:7788/requestconfirmation.com/"+user.getEmail()+"/"+token);	
+				HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+				JSONObject obj = new JSONObject(connection.getResponseCode());
+				String confirmation = obj.get("confirmation").toString();
+				if(confirmation.equals("true"))
+				{
+					return true;
+				}
+			}
+			catch(IOException io)
+			{
+				System.out.println("IO Exception");
+			}
+			return false;
 		}
 		else
 		{
-			return "no user";
+			return false;
 		}
 	}
 }
