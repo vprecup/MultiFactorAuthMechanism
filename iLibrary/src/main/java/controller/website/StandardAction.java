@@ -6,7 +6,7 @@ import org.apache.struts2.ServletActionContext;
 import model.DefaultManager;
 import model.User;
 import java.net.*;
-import java.io.IOException;
+import java.io.*;
 import org.json.JSONException;
 import org.json.JSONObject; 
 
@@ -51,8 +51,13 @@ public class StandardAction extends ActionSupport
 			User user = (User)userHome.findById(userId);
 			try
 			{
+				System.out.println(user.getEmail());
 				URL url = new URL("http://localhost:7788/requestcode.com/"+user.getEmail());	
-				HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+				/*System.out.println(conn.getResponseCode());
+				System.out.println(conn);*/
+
+				conn.disconnect();
 			}
 			catch(IOException io)
 			{
@@ -71,9 +76,15 @@ public class StandardAction extends ActionSupport
 			{
 
 				URL url = new URL("http://localhost:7788/requestconfirmation.com/"+user.getEmail()+"/"+token);	
-				HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-				JSONObject obj = new JSONObject(connection.getResponseCode());
+				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+				conn.setRequestMethod("GET");
+				InputStream in = new BufferedInputStream(conn.getInputStream());
+				JSONObject obj = new JSONObject(getResponseText(in));
+				//System.out.println(obj);
 				String confirmation = obj.get("confirmation").toString();
+				//System.out.println(confirmation);
+
+				conn.disconnect();
 				if(confirmation.equals("true"))
 				{
 					return true;
@@ -89,5 +100,8 @@ public class StandardAction extends ActionSupport
 		{
 			return false;
 		}
+	}
+	private static String getResponseText(InputStream inStream) {
+	    return new Scanner(inStream).useDelimiter("\\A").next();
 	}
 }
