@@ -100,12 +100,12 @@ public class DefaultManager extends HibernateUtil {
 		List<Object> result = null;
 		try {
 			result = (List<Object>)session.createQuery("from "+className+" "+queryConditions).list();
-			return result.get(0);
+			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
 		}
 		session.getTransaction().commit();
-		return result;
+		return result.get(0);
 	}
 }
