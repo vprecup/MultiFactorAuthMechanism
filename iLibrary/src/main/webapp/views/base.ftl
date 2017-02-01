@@ -37,7 +37,7 @@
           
           <ul class="dropdown-menu">
             <#if out['session']?? && out['session'].getAttribute("user")?? && out['session'].getAttribute("user")?has_content>
-            <li><a href="/iLibrary/profile">Profile</a></li>
+            
             <li><a href="/iLibrary/logout">Sign out</a></li>
             <#else>
             <li><a href="/iLibrary/login">Login</a></li>
